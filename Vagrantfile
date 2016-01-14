@@ -18,8 +18,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "ubuntu/trusty64"
   end
 
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu/trusty64"
 
   # Disable automatic box update checking. If you disable this, then
@@ -51,7 +49,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", pref["memory"]]
   end
 
-
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
   # such as FTP and Heroku are also available. See the documentation at
   # https://docs.vagrantup.com/v2/push/atlas.html for more information.
@@ -59,5 +56,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
 
-  config.vm.provision "shell", path: "provisioning/hubot.sh"
+  hubot_configs = [pref['npmmirror'].nil? ? "https://registry.npmjs.org/": pref['npmmirror'],
+                   pref['owner'].nil? ? "Bot Wrangler": pref['owner'],
+                   pref['name'].nil? ? "Hubot": pref['name'],
+                   pref['description'].nil? ? "Delightfully aware robutt": pref['description'],
+                   pref['adapter'].nil? ? "shell": pref['adapter']]
+
+  config.vm.provision "shell", path: "provisioning/hubot.sh", args: hubot_configs
 end
