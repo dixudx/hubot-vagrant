@@ -62,5 +62,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                    pref['description'].nil? ? "Delightfully aware robutt": pref['description'],
                    pref['adapter'].nil? ? "shell": pref['adapter']]
 
-  config.vm.provision "shell", path: "provisioning/hubot.sh", args: hubot_configs
+  config.vm.provision "shell", path: "provisioning/hubot.sh", args: hubot_configs, privileged: false
 end

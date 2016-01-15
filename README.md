@@ -46,7 +46,12 @@ You can specify the amount of **memory** used by the virtual machine. It is set 
 since I think this is a good value that would work for the most users. If you however have very low memory
 you can try to decrease this value or increase it, if you have enough memory left in your system.
 
-Also you can customize the Hubot with below parameters.
+**IMPORTANT NOTICE:**
+
+Remember to configure the right registry for [npm](https://www.npmjs.com/) with '**npmmirror**' in `config.yaml`,
+which can speed up the installation of npm packages.
+
+Also you can customize the [Hubot](https://hubot.github.com/) with below parameters.
 
 | Hubot Option  | Description                                       |
 |---------------|---------------------------------------------------|
