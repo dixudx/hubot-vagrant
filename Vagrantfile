@@ -47,6 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", pref["memory"]]
+    vb.name = hubot
   end
 
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
