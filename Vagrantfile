@@ -45,9 +45,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
+  config.vm.hostname = "hubot"
+  config.hostmanager.aliases = "www.hubot"
+
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", pref["memory"]]
     vb.name = hubot
+  end
+
+  if pref['use_sources_list']
+    config.vm.provision "shell", path: "provisioning/apt_mirror.sh"
   end
 
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies

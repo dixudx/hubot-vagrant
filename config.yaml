@@ -5,3 +5,4 @@ owner: "Bot Wrangler <bw@example.com>"
 name: "Hubot"
 description: "Delightfully aware robutt"
 adapter: "shell"
+use_sources_list: false

@@ -39,6 +39,10 @@ Configuration
 There is a configuration file called `config.yaml` that you can edit with a text editor, to change
 some settings.
 
+### General Settings
+
+You can choose to use your own **Ubuntu mirror** by setting `use_sources_list` to `true` in `config.yaml` and placing `sources.list` in folder `provisioning`.
+
 ### Virtual Machine Customizations
 
 Set the `32bit` option to `true` if you run on a system, that only supports 32bit virtualization or

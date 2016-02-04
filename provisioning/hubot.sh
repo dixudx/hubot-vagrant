@@ -9,25 +9,7 @@ adapter=$5
 
 DEFAULT_INSTALLATION_DIR="/home/vagrant/myhubot"
 
-print_status() {
-    echo
-    echo "## $1"
-    echo
-}
-
-bail() {
-    echo 'Error executing command, exiting'
-    exit 1
-}
-
-exec_cmd_nobail() {
-    echo "+ $1"
-    bash -c "$1"
-}
-
-exec_cmd() {
-    exec_cmd_nobail "$1" || bail
-}
+source /vagrant/provisioning/utils.sh
 
 ### install node.js and npm
 
