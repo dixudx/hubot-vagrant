@@ -28,10 +28,9 @@ exec_cmd 'sudo npm install -g --loglevel=http yo generator-hubot'
 
 ### make a new directory, and generate a new instance of hubot in it
 print_status "creating an instance of hubot for you ..."
-mkdir -p $DEFAULT_INSTALLATION_DIR
-cd myhubot
+exec_cmd "sudo mkdir -p $DEFAULT_INSTALLATION_DIR"
 
-exec_cmd "yo hubot --owner=\"$owner\" --name=\"$name\" --description=\"$description\" --adapter=\"$adapter\""
+exec_cmd "cd $DEFAULT_INSTALLATION_DIR; yo hubot --owner=\"$owner\" --name=\"$name\" --description=\"$description\" --adapter=\"$adapter\""
 print_status "successfully creating a hubot instance with name: $name"
 print_status "Now you can login/ssh the instance, and type 'cd $DEFAULT_INSTALLATION_DIR; bin/hubot'"
 print_status "And then you can start your hubot journey with '$name help'"
